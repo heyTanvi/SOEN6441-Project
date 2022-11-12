@@ -16,7 +16,7 @@ Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Clone repository (`https://github.com/heyTanvi/SOEN6441-Project.git`)
-3. Create your Feature Branch (`git checkout -b <remote>/photo-pagination`)
+3. Create your Feature Branch (`git checkout -b <remote>/SOEN6441-Project`)
 4. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 5. Push to the Branch (`git push origin <remote>/AmazingFeature`)
 6. Open a Pull Request
