@@ -2,6 +2,8 @@
 
 Covid Tracker: Implementation of a system that can read API /JSON data as part of the SOEN6441 - Advanced Programming Practices (APP) course at Concordia University.
 
+Public API: https://api.covid19api.com/summary
+
 ![](Covid-APP.PNG)
 
 <!-- CONTRIBUTING -->
