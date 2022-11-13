@@ -9,6 +9,13 @@ import org.junit.Test;
 
 public class CovidTrackerApplicationTest {
 
-	
+	private CovidTrackerApplication covidTrackerApplication;
+
+	private HttpServletRequest req;
+
+	@Test
+	public void test01() throws IOException, ServletException {
+		covidTrackerApplication = new CovidTrackerApplication();
+	}
 
 }
