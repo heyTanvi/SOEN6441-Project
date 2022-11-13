@@ -13,5 +13,11 @@ private CovidTrackerServiceImpl covidTrackerServiceImpl = new CovidTrackerServic
 		Assert.assertNotNull(covidTrackerServiceImpl);
 	}
 	
+	@Test
+	public void testGetAllGlobalResult() {
+		String allGlobalResult = covidTrackerServiceImpl.getAllGlobalResult();
+		Assert.assertNotNull(allGlobalResult);
+	}
+	
 
 }
