@@ -5,7 +5,13 @@ import org.junit.Test;
 import junit.framework.Assert;
 
 public class CovidTrackerServiceImplTest {
+private CovidTrackerServiceImpl covidTrackerServiceImpl = new CovidTrackerServiceImpl();
 
+	@Test
+	public void testInstanceIsCreated() {
+		covidTrackerServiceImpl = new CovidTrackerServiceImpl();
+		Assert.assertNotNull(covidTrackerServiceImpl);
+	}
 	
 
 }
