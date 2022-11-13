@@ -34,7 +34,7 @@ for (let i = 0; i < countryList.length; i++) {
 }
 
 function getCountryRelatedInfo(countryE) {
-  let COUNTRY_CASES = `http://localhost:8080/soen-web/register?filter=country&code=${countryE.id}`;
+  let COUNTRY_CASES = `http://localhost:8080/SOEN6441-Project/register?filter=country&code=${countryE.id}`;
   document.getElementById(
     'tag'
   ).innerHTML = `${countryE.innerHTML} Covid Cases`;
@@ -55,7 +55,8 @@ function getCountryRelatedInfo(countryE) {
     .catch((err) => console.error(err));
 }
 function getGlobal() {
-  let GLOBAL_CASES = 'http://localhost:8080/soen-web/register?filter=global';
+  let GLOBAL_CASES =
+    'http://localhost:8080/SOEN6441-Project/register?filter=global';
   document.getElementById('main-div').style.display = 'block';
   document.getElementById('myChart').style.display = 'none';
   document.getElementById('animatediv').style.display = 'block';
@@ -85,7 +86,7 @@ document.getElementById('analysis').addEventListener('click', drawChart);
 function drawChart() {
   let countryCount = {};
   let COUNTRY_BY_CODES =
-    'http://localhost:8080/soen-web/register?filter=analysis&codes=AD,AL,AF,AM,BB,BY,BE,BZ';
+    'http://localhost:8080/SOEN6441-Project/register?filter=analysis&codes=AD,AL,AF,AM,BB,BY,BE,BZ';
 
   fetch(COUNTRY_BY_CODES)
     .then((response) => {
@@ -98,7 +99,7 @@ function drawChart() {
         const cc = data[i].countryCode;
         const cv = data[i].totalConfirmed;
         if (countryCount[cc]) {
-          countryCount[cc] = countryCount[cc] + cv % 100;
+          countryCount[cc] = countryCount[cc] + (cv % 100);
         } else {
           countryCount[cc] = cv % 100;
         }
@@ -107,8 +108,16 @@ function drawChart() {
       document.getElementById('myChart').style.display = 'block';
       document.getElementById('animatediv').style.display = 'none';
       var xValues = Object.keys(countryCount);
-      var yValues = Object.values(countryCount);;
-      var barColors = ['red', 'green', 'blue', 'orange', 'brown', 'yellow', 'pink'];
+      var yValues = Object.values(countryCount);
+      var barColors = [
+        'red',
+        'green',
+        'blue',
+        'orange',
+        'brown',
+        'yellow',
+        'pink',
+      ];
 
       new Chart('myChart', {
         type: 'bar',
