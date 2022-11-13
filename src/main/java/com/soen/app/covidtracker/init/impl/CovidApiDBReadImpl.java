@@ -1,7 +1,6 @@
 package com.soen.app.covidtracker.init.impl;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,8 +19,7 @@ public class CovidApiDBReadImpl extends AbstractCovidApiDB {
 	@Override
 	public Global getAllGlobalResult() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(URI, U_NAME, PASSWORD);
+			Connection conn = getConnection();
 
 			Statement statement = conn.createStatement();
 			ResultSet result = statement.executeQuery(GLOBAL_SELECT_SQL);
@@ -56,8 +54,7 @@ public class CovidApiDBReadImpl extends AbstractCovidApiDB {
 	@Override
 	public Country getCountryResult(String code) {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(URI, U_NAME, PASSWORD);
+			Connection conn = getConnection();
 
 			PreparedStatement prepareStatement = conn.prepareStatement(COUNTRY_SELECT_SQL_BY_CODE);
 			prepareStatement.setString(1, code);
@@ -88,8 +85,7 @@ public class CovidApiDBReadImpl extends AbstractCovidApiDB {
 	@Override
 	public List<Country> getAllCountriesResult() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(URI, U_NAME, PASSWORD);
+			Connection conn = getConnection();
 
 			Statement statement = conn.createStatement();
 			ResultSet result = statement.executeQuery(COUNTRY_SELECT_SQL);
@@ -121,8 +117,7 @@ public class CovidApiDBReadImpl extends AbstractCovidApiDB {
 	public List<Country> getAllCountryResultByCode(String countryCodes) {
 
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(URI, U_NAME, PASSWORD);
+			Connection conn = getConnection();
 
 			PreparedStatement prepareStatement = conn.prepareStatement(COUNTRY_SELECT_SQL_BY_CODES);
 			String[] split = countryCodes.split(",");

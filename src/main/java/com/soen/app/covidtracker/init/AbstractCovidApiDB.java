@@ -1,5 +1,8 @@
 package com.soen.app.covidtracker.init;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.soen.app.covidtracker.domain.Country;
@@ -15,6 +18,22 @@ public class AbstractCovidApiDB implements CovidApiDB {
 	protected static final String COUNTRY_SELECT_SQL = "select * from COUNTRY INNER JOIN GLOBAL ON COUNTRY.globalId = GLOBAL.global_id";
 	protected static final String COUNTRY_SELECT_SQL_BY_CODE = "select * from COUNTRY INNER JOIN GLOBAL ON COUNTRY.globalId = GLOBAL.global_id where countryCode = ?";
 	protected static final String COUNTRY_SELECT_SQL_BY_CODES = "select * from COUNTRY INNER JOIN GLOBAL ON COUNTRY.globalId = GLOBAL.global_id where countryCode in (?,?,?,?,?,?,?,?)";
+
+	private static Connection con = null;
+
+	static {
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection(URI, U_NAME, PASSWORD);
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static Connection getConnection() {
+		return con;
+	}
+
 	@Override
 	public void persitInDatabase(CovidApiRO ro) {
 		// TODO Auto-generated method stub

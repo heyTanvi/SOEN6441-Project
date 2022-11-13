@@ -1,7 +1,6 @@
 package com.soen.app.covidtracker.init.impl;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,8 +35,7 @@ public class CovidApiDBCreateImpl extends AbstractCovidApiDB {
 
 	private void persistCountryTable(CountryEO eo) {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(URI, U_NAME, PASSWORD);
+			Connection conn = getConnection();
 
 			PreparedStatement preparedStatement = conn.prepareStatement(GLOBAL_INSERT_SQL,
 					Statement.RETURN_GENERATED_KEYS);
@@ -72,8 +70,7 @@ public class CovidApiDBCreateImpl extends AbstractCovidApiDB {
 
 	private void persistGlobalTable(GlobalEO eo) {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(URI, U_NAME, PASSWORD);
+			Connection conn = getConnection();
 
 			Statement statement = conn.createStatement();
 			ResultSet result = statement.executeQuery(GLOBAL_SELECT_SQL);

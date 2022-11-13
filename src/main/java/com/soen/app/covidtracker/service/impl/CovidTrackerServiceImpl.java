@@ -26,8 +26,8 @@ public class CovidTrackerServiceImpl implements CovidTrackerService {
 
 	@Override
 	public String getAllCountryResult() {
-		 List<Country> allCountriesResult = covidTrackerDAO.getAllCountriesResult();
-		 return CovidApiInit.convertCountriesToString(allCountriesResult);
+		List<Country> allCountriesResult = covidTrackerDAO.getAllCountriesResult();
+		return CovidApiInit.convertCountriesToString(allCountriesResult);
 	}
 
 	@Override
@@ -38,14 +38,14 @@ public class CovidTrackerServiceImpl implements CovidTrackerService {
 
 	@Override
 	public String getCountryResult(String code) {
-		 Country result = covidTrackerDAO.getCountryResult(code);
-		 return CovidApiInit.convertCountryToString(result);
+		Country result = covidTrackerDAO.getCountryResult(code);
+		return CovidApiInit.convertCountryToString(result);
 	}
 
 	@Override
 	public String getAllCountryResultByCode(String codes) {
-		 List<Country> allCountriesResult = covidTrackerDAO.getAllCountryResultByCode(codes);
-		 return CovidApiInit.convertCountriesToString(allCountriesResult);
+		List<Country> allCountriesResult = covidTrackerDAO.getAllCountryResultByCode(codes);
+		return CovidApiInit.convertCountriesToString(allCountriesResult);
 	}
 
 }

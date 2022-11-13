@@ -49,7 +49,7 @@ public class CovidTrackerApplication extends HttpServlet {
 			out.print(covidTrackerService.getCountryResult(code));
 		} else if (filter.equals("allCountry")) {
 			out.print(covidTrackerService.getAllCountryResult());
-		} else if(filter.equals("analysis")) {
+		} else if (filter.equals("analysis")) {
 			String codes = request.getParameter("codes");
 			out.print(covidTrackerService.getAllCountryResultByCode(codes));
 		}
