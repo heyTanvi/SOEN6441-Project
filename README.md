@@ -4,6 +4,8 @@ Covid Tracker: Implementation of a system that can read API /JSON data as part o
 
 Public API: https://api.covid19api.com/summary
 
+Demo link: https://drive.google.com/file/d/1XlmWxgBkoSAM_yuzShtU2G3_dZ2HOmXz/view
+
 ![](Covid-APP.PNG)
 
 <!-- CONTRIBUTING -->
